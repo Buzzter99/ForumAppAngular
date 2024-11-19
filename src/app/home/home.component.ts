@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { ApiResponse } from '../models/ApiResponse';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +11,13 @@ import { UserService } from '../services/user.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  userCount: number = 0;
+  currentUsers: User[] = [];
   constructor(private userService: UserService) { }
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe((users) => {
-      this.userCount = users.length;
+    this.userService.getAllUsers().subscribe(data => {
+      if (Array.isArray(data)) {
+        this.currentUsers = data as User[];
+      }
     });
   }
 }

@@ -1,4 +1,4 @@
-import { IUser } from "./IUser";
+import { IUser } from "./Contracts/IUser";
 export class User implements IUser {
     _id: number;
     username: string;
