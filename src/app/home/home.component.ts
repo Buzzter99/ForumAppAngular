@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Signal } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { ApiResponse } from '../models/ApiResponse';
 import { User } from '../models/User';
 
 @Component({

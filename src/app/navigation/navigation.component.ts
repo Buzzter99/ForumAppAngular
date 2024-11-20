@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { interval } from 'rxjs';
@@ -12,7 +12,6 @@ import { interval } from 'rxjs';
 })
 export class NavigationComponent implements OnInit {
   isAuthenticated : WritableSignal<boolean> = signal(false)
-  intervalId: any;
   constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit(): void {
