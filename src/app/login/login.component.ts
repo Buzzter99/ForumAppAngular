@@ -24,6 +24,8 @@ export class LoginComponent {
   }
 
   login(){
+    if(this.loginForm.invalid) 
+    return;
     this.userService.login(new User('','',this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)).subscribe(response => {
       if(response.statusCode === 200){
         this.loginForm.reset();
