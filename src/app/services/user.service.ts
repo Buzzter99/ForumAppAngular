@@ -13,13 +13,16 @@ export class UserService {
   getAllUsers(): Observable<User[] | ApiResponse> {
     return this.httpClient.get<User[] | ApiResponse>(environment.apiUrl + '/user/all');
   }
-  isAuthenticated(): Observable<boolean> {
+  isAuthenticated(): Observable<ApiResponse | null> {
     return this.httpClient.get<ApiResponse>(`${environment.apiUrl}/user/isAuthenticated`, { withCredentials: true })
       .pipe(map(response => {
-        return response.statusCode === 200 ? true : false
+        return response.statusCode === 200 ? response : null;
       }));
   }
-  login(credentials: User) : Observable<ApiResponse>{
-    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/login`,credentials ,{ withCredentials: true });
+  login(credentials: User): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/login`, credentials, { withCredentials: true });
+  }
+  logout(): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/logout`, {}, { withCredentials: true });
   }
 }
