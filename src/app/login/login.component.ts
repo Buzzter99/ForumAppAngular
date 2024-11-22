@@ -18,16 +18,17 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required,Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     })
   }
 
-  login(){
-    if(this.loginForm.invalid) 
-    return;
-    this.userService.login(new User('','',this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)).subscribe(response => {
-      if(response.statusCode === 200){
+  login() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.userService.login(new User('', '', this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)).subscribe(response => {
+      if (response.statusCode === 200) {
         this.loginForm.reset();
         this.apiErrorMessage = '';
         this.router.navigate(['home']);
