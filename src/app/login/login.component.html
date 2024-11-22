@@ -1,19 +1,47 @@
-<section class="flex justify-center items-center h-screen bg-gray-800">
+<form [formGroup]="this.loginForm" (ngSubmit)="login()">
+  <section class="flex justify-center items-center h-screen bg-gray-800">
     <div class="max-w-md w-full bg-gray-900 rounded p-6 space-y-4">
-        <div class="mb-4">
-            <p class="text-gray-400">Sign In</p>
-            <h2 class="text-xl font-bold text-white">Sign into your account</h2>
-        </div>
-        <div>
-            <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Email">
-        </div>
-        <div>
-            <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Password">
-        </div>
-        <div>
-            <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded text-sm font-bold text-gray-50 transition duration-200">Sign In</button>
-        </div>
-        <div class="flex items-center justify-between">
-        </div>
+      <div class="mb-4">
+        <p class="text-gray-400">Sign In</p>
+        <h2 class="text-xl font-bold text-white">Sign into your account</h2>
+      </div>
+      <div>
+        <input
+          formControlName="email"
+          class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
+          type="text"
+          placeholder="Email"
+        />
+      </div>
+      @if(this.loginForm.get('email')?.hasError('required') && this.loginForm.get('email')?.touched){
+        <app-error-message [errorMessage]="'Email is required'"></app-error-message>
+      }
+      @if(this.loginForm.get('email')?.hasError('email') && this.loginForm.get('email')?.touched){
+        <app-error-message [errorMessage]="'Email is invalid'"></app-error-message>
+      }
+      <div>
+        <input
+          formControlName="password"
+          class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
+          type="password"
+          placeholder="Password"
+        />
+      </div>
+      @if(this.loginForm.get('password')?.hasError('required') && this.loginForm.get('password')?.touched){
+        <app-error-message [errorMessage]="'Password is required'"></app-error-message>
+      }
+      <div>
+        <button
+          type="submit" [disabled]="this.loginForm.invalid"
+          class="w-full py-4 rounded text-sm font-bold transition duration-200 text-gray-50 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-400"
+        >
+          Sign In
+        </button>
+      </div>
+      @if(this.apiErrorMessage){
+        <app-error-message [errorMessage]="this.apiErrorMessage"></app-error-message>
+      }
+      <div class="flex items-center justify-between"></div>
     </div>
-</section>
+  </section>
+</form>

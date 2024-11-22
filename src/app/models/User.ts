@@ -1,13 +1,13 @@
 import { IUser } from "./Contracts/IUser";
 export class User implements IUser {
-    _id: number;
+    _id: string;
     username: string;
     password: string;
     email: string;
-    constructor(id: number, username: string, password: string, email: string) {
-        this._id = id;
+    constructor(_id: string, username: string, email: string,password: string) {
+        this._id = _id;
         this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
     }
 }

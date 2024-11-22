@@ -19,4 +19,7 @@ export class UserService {
         return response.statusCode === 200 ? true : false
       }));
   }
+  login(credentials: User) : Observable<ApiResponse>{
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/login`,credentials ,{ withCredentials: true });
+  }
 }
