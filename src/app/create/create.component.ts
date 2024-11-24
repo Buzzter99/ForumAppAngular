@@ -28,7 +28,7 @@ export class CreateComponent {
     this.postService.createPost(this.forumPostForm.value).subscribe(response => {
       if (response.statusCode === 200) {
         this.apiErrorMessage = '';
-        this.router.navigate(['home']);
+        this.router.navigate(['all']);
       } else {
         this.apiErrorMessage = response.message;
       }
