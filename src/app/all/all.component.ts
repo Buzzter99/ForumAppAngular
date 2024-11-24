@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { ForumPost } from '../models/Contracts/ForumPost';
+import { ForumPost } from '../models/ForumPost';
 
 @Component({
   selector: 'app-all',
@@ -16,6 +16,7 @@ constructor(private postService: PostService) { }
     this.postService.getAllPosts().subscribe(data =>{
       if (Array.isArray(data)) {
         this.posts = data as ForumPost[];
+        console.log(this.posts);
       }
     });
   }

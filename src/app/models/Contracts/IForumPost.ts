@@ -1,10 +1,12 @@
+import { User } from "../User";
 import { IComment } from "./IComment";
 export interface IForumPost {
     _id: string;
-    Topic: string;
-    Description: string;
-    AdditionalInfo: string;
-    When: Date;
-    Who: string;
-    Comments: IComment[]
+    topic: string;
+    description: string;
+    additionalInfo: string;
+    when: Date;
+    who: User;
+    comments: IComment[]
+    isOwner: boolean
 }

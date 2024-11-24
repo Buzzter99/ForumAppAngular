@@ -1,13 +1,13 @@
-<div class="min-h-screen bg-gray-900 text-gray-200 flex items-center justify-center">
-<div class="max-w-lg mx-auto bg-gray-900 text-gray-200 shadow-lg rounded-lg p-8 border border-gray-700">
+<div class="min-h-screen bg-gray-900 text-gray-200 flex items-start justify-center pt-10 pb-2"> 
+  <div class="max-w-lg mx-auto bg-gray-900 text-gray-200 shadow-lg rounded-lg p-8 border border-gray-700">
     <h2 class="text-3xl font-bold mb-6 text-gray-100 text-center">
       Create a New Forum Post
     </h2>
     <form [formGroup]="forumPostForm" (ngSubmit)="createPost()">
       <div class="mb-5">
-        <label for="topic" class="block text-sm font-medium text-gray-400 mb-2"
-          >Topic</label
-        >
+        <label for="topic" class="block text-sm font-medium text-gray-400 mb-2">
+          Topic
+        </label>
         <input
           id="topic"
           type="text"
@@ -20,11 +20,9 @@
         <app-error-message [errorMessage]="'Topic is required'"></app-error-message>
       }
       <div class="mb-5">
-        <label
-          for="problem"
-          class="block text-sm font-medium text-gray-400 mb-2"
-          >Problem Description</label
-        >
+        <label for="problem" class="block text-sm font-medium text-gray-400 mb-2">
+          Problem Description
+        </label>
         <textarea
           id="problem"
           formControlName="description"
@@ -37,7 +35,9 @@
         <app-error-message [errorMessage]="'Description is required'"></app-error-message>
       }
       <div class="mb-5">
-        <label for="additionalInfo" class="block text-sm font-medium text-gray-400 mb-2">Additional Information</label>
+        <label for="additionalInfo" class="block text-sm font-medium text-gray-400 mb-2">
+          Additional Information
+        </label>
         <textarea
           id="additionalInfo"
           formControlName="additionalInfo"

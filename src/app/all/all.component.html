@@ -1,50 +1,50 @@
-<div class="bg-gray-900 text-gray-200 min-h-screen py-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <!-- Post 1 -->
-      <div class="bg-gray-900 text-gray-200 shadow-lg rounded-lg p-6 border border-gray-700">
-        <div class="flex justify-between items-center">
-          <h3 class="text-xl font-bold text-blue-400">Post Title</h3>
-          <span class="text-sm text-gray-400">2 hours ago</span>
-        </div>
-        <p class="text-gray-300 mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo urna nec leo convallis, nec luctus arcu laoreet.
-        </p>
-        <div class="flex items-center mt-6">
-          <img
-            src="https://via.placeholder.com/40"
-            alt="User Avatar"
-            class="w-10 h-10 rounded-full mr-4"
-          />
-          <div>
-            <p class="text-sm font-semibold text-gray-200">John Doe</p>
+<div class="bg-gray-900 text-gray-200 min-h-screen py-2"> <!-- Reduced vertical padding -->
+    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+       @if(this.posts.length > 0){
+        @for (post of this.posts; track $index) {
+        <div class="bg-gray-900 text-gray-200 shadow-lg rounded-lg p-6 border border-gray-700">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold text-blue-400">{{post.topic}}</h3>
+            <span class="text-sm text-gray-400">{{post.when.toString().slice(0, 10).split('-').reverse().join('-')}}</span>
+          </div>
+          <p class="text-gray-300 mt-4">
+            {{post.description}}
+          </p>
+          <div class="flex items-center mt-6">
+            <img
+              src="img_avatar.png"
+              alt="User Avatar"
+              class="w-10 h-10 rounded-full mr-4"
+            />
+            <div>
+              <p class="text-sm font-semibold text-gray-200">{{post.who.username}}</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
+              View Details
+            </a>
+            @if(post.isOwner){
+              <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
+                Edit
+              </a>
+              <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
+                Delete
+              </a>
+            }
+            <div class="flex space-x-3 text-sm text-gray-400">
+              <span class="flex items-center space-x-1">
+              </span>
+              <span class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4" />
+                </svg> 
+               <span>{{post.comments.length}} comments</span>
+              </span>
+            </div>
           </div>
         </div>
-        <div class="flex justify-between items-center mt-6">
-          <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
-            View Comments
-          </a>
-          <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
-            Edit
-          </a>
-          <a href="#" class="text-blue-500 hover:underline text-sm font-medium">
-            Delete
-          </a>
-          <div class="flex space-x-3 text-sm text-gray-400">
-            <span class="flex items-center space-x-1">
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              <span>12</span> -->
-            </span>
-            <span class="flex items-center space-x-1">
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4" />
-              </svg> -->
-              <!-- <span>5 comments</span> -->
-            </span>
-          </div>
-        </div>
-      </div>
+       }
+      }
     </div>
-  </div>
-  
+</div>
