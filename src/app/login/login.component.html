@@ -31,8 +31,7 @@
         <app-error-message [errorMessage]="'Password is required'"></app-error-message>
       }
       <div>
-        <button
-          type="submit" [disabled]="this.loginForm.invalid"
+        <button [disabled]="this.loginForm.invalid"
           class="w-full py-4 rounded text-sm font-bold transition duration-200 text-gray-50 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-400"
         >
           Sign In
