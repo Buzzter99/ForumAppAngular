@@ -1,3 +1,4 @@
+import { Comment } from "../Comment";
 import { User } from "../User";
 import { IComment } from "./IComment";
 export interface IForumPost {
@@ -7,6 +8,6 @@ export interface IForumPost {
     additionalInfo: string;
     when: Date;
     who: User;
-    comments: IComment[]
+    comments: Comment[]
     isOwner: boolean
 }

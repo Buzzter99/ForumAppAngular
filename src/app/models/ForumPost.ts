@@ -1,4 +1,4 @@
-import { IComment } from "./Contracts/IComment";
+import { Comment } from "./Comment";
 import { IForumPost } from "./Contracts/IForumPost";
 import { User } from "./User";
 
@@ -14,7 +14,6 @@ export class ForumPost implements IForumPost {
         password: "",
         email: ""
     }
-    comments: IComment[] = [];
-    isOwner: boolean = false;
-    
+    comments: Comment[] = [];
+    isOwner: boolean = false;  
 }

@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { authGuard, redirectIfAuthenticatedGuard } from './guards/auth.guard';
 import { CreateComponent } from './create/create.component';
 import { AllComponent } from './all/all.component';
+import { PostComponent } from './post/post.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { path: 'register', component:RegisterComponent,canActivate: [redirectIfAuthenticatedGuard] },
     { path: 'create', component:CreateComponent,canActivate: [authGuard] },
     {path: 'all', component:AllComponent},
+    { path: 'all/:id', component:PostComponent },
     {path: '404', component:NotFoundComponent},
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

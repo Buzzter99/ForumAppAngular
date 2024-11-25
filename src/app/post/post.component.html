@@ -1,0 +1,70 @@
+<div class="bg-gray-900 text-gray-200 min-h-screen py-4">
+  <div class="max-w-3xl mx-auto space-y-6">
+    <div class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
+      <div class="flex justify-between items-center">
+        <h3 class="text-2xl font-bold text-blue-400">{{ singlePost.topic }}</h3>
+        @if (singlePost.when) {
+        <span class="text-sm text-gray-400">{{singlePost.when.toString().slice(0, 10).split("-").reverse().join("-")}}  {{singlePost.when.toString().slice(11, 16)}}</span>
+        }
+      </div>
+      <p class="text-gray-300 mt-4">
+        {{ singlePost.description }}
+        @if(singlePost.additionalInfo){ ({{ singlePost.additionalInfo }}) }
+      </p>
+      <div class="flex items-center mt-6">
+        <img
+          src="img_avatar.png"
+          alt="User Avatar"
+          class="w-10 h-10 rounded-full mr-4"
+        />
+        <div>
+          @if (singlePost.who) {
+          <p class="text-sm font-semibold text-gray-200">
+            {{ singlePost.who.username }}
+          </p>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="space-y-4">
+      @if (singlePost.comments) { @if (singlePost.comments.length) {
+      <h3 class="text-lg font-semibold text-gray-200">Comments</h3>
+      @for (comment of this.singlePost.comments; track $index) {
+      <div
+        class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-4 border border-gray-700"
+      >
+        <div class="flex items-center">
+          <img
+            src="img_avatar.png"
+            alt="User Avatar"
+            class="w-8 h-8 rounded-full mr-3"
+          />
+          <p class="text-sm font-semibold text-gray-200">{{ comment.who.username }}</p>
+        </div>
+        <p class="text-gray-300 mt-3">
+          {{ comment.message }}
+        </p>
+        <span class="block text-xs text-gray-500 mt-2">{{comment.when.toString().slice(0, 10).split("-").reverse().join("-")}} {{comment.when.toString().slice(11, 16)}}</span>
+      </div>
+      } } }
+      @if (!this.singlePost.isOwner) {
+      <div class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
+        <h3 class="text-lg font-semibold text-gray-200 mb-4">Add a Comment</h3>
+        <form [formGroup]="this.commentForm" (ngSubmit)="addComment()">
+          <textarea
+            formControlName="msg"
+            class="w-full rounded-lg bg-gray-700 border border-gray-600 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
+            rows="3"
+            placeholder="Write your comment here..."></textarea>
+            @if (this.commentForm.get('msg')?.hasError('required') && this.commentForm.get('msg')?.touched) {
+              <app-error-message [errorMessage]="'Comment is required'"></app-error-message>
+            }
+          <button [disabled]="this.commentForm.invalid" class="mt-4 w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-gray-100 font-semibold text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition disabled:opacity-50 disabled:cursor-not-allowed">
+            Post Comment
+          </button>
+        </form>
+      </div>
+      }
+    </div>
+  </div>
+</div>

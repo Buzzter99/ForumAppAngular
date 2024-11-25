@@ -16,4 +16,10 @@ export class PostService {
   getAllPosts(): Observable<ForumPost[] | ApiResponse> {
     return this.httpClient.get<ForumPost[] | ApiResponse>(`${environment.apiUrl}/forum/all`, { withCredentials: true });
   }
+  getSinglePost(id: string): Observable<ForumPost | ApiResponse> {
+    return this.httpClient.get<ForumPost | ApiResponse>(`${environment.apiUrl}/forum/${id}`, { withCredentials: true });
+  }
+  addComment(postId: string, msg: string): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/forum/addComment`, { postId, msg }, { withCredentials: true });
+  }
 }
