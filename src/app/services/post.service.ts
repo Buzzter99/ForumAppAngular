@@ -22,4 +22,7 @@ export class PostService {
   addComment(postId: string, msg: string): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/forum/addComment`, { postId, msg }, { withCredentials: true });
   }
+  deletePost(postId: string): Observable<ApiResponse> {
+    return this.httpClient.delete<ApiResponse>(`${environment.apiUrl}/forum/all/${postId}`, { withCredentials: true });
+  }
 }

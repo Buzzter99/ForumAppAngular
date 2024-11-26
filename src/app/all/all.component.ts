@@ -20,4 +20,16 @@ constructor(private postService: PostService) { }
       }
     });
   }
+
+  deletePost(postId: string) {
+    this.postService.deletePost(postId).subscribe(data => {
+      if (data.statusCode === 200) {
+        this.posts = this.posts.filter(post => post._id !== postId);
+        alert(data.message);
+      } else {
+        alert(data.message);
+      }
+    });
+    this.posts = this.posts.filter(post => post._id !== postId);
+  }
 }
