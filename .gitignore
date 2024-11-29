@@ -43,3 +43,5 @@ Thumbs.db
 
 #connections for mongodb
 .env
+#docker
+data
