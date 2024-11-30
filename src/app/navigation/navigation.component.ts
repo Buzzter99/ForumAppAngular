@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
   }
   ngOnInit(): void {
     this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data));
-    interval((1000)).subscribe(() => { this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data)) });
+    interval((5000)).subscribe(() => { this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data)) });
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/home') {
@@ -32,5 +32,6 @@ export class NavigationComponent implements OnInit {
   logout() {
     this.userService.logout().subscribe();
     this.isAuthenticated.set(null);
+    this.router.navigate(['home']);
   }
 }
