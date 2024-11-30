@@ -1,3 +1,4 @@
 export const environment = {
-    apiUrl: 'http://localhost:3000'
+    apiUrl: 'http://busarovapp-be:3000'
+    //add Container name for prod
 };

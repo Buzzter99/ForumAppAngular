@@ -1,22 +1,27 @@
 name: busarovapp
 services:
-    mongo:
-        container_name: mongodb
-        volumes:
-            - ./data:/data/db
-        ports:
-            - 27017:27017
-        image: mongo:latest
-    busarov-be:
-        ports:
-            - 3000:3000
-        container_name: busarovapp-be
-        environment:
-            - JWT_SECRET=JWT_SECRET
-            - MONGODB_CONNECTIONSTRING=mongodb://mongodb:27017/BusarovForumDb
-        image: buzzter100/busarov-be
-    busarov-fe:
-        ports:
-            - 80:80
-        container_name: busarovapp-fe
-        image: buzzter100/busarov-fe
+  mongo:
+    container_name: mongodb
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+    image: mongo:latest
+  busarov-be:
+    ports:
+      - 3000:3000
+    container_name: busarovapp-be
+    environment:
+      - JWT_SECRET=JWT_SECRET
+      - MONGODB_CONNECTIONSTRING=mongodb://mongodb:27017/BusarovForumDb
+    image: buzzter100/busarov-be
+    depends_on:
+      - mongo
+  busarov-fe:
+    ports:
+      - 80:80
+    container_name: busarovapp-fe
+    image: buzzter100/busarov-fe
+    depends_on:
+      - busarov-be
+      - mongo
