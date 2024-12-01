@@ -7,17 +7,14 @@
       </div>
       <div>
         <input
-          formControlName="email"
+          formControlName="emailOrUsername"
           class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
           type="text"
-          placeholder="Email"
+          placeholder="Email/Username"
         />
       </div>
-      @if(this.loginForm.get('email')?.hasError('required') && this.loginForm.get('email')?.touched){
+      @if(this.loginForm.get('emailOrUsername')?.hasError('required') && this.loginForm.get('email')?.touched){
         <app-error-message [errorMessage]="'Email is required'"></app-error-message>
-      }
-      @if(this.loginForm.get('email')?.hasError('email') && this.loginForm.get('email')?.touched){
-        <app-error-message [errorMessage]="'Email is invalid'"></app-error-message>
       }
       <div>
         <input

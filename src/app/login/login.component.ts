@@ -3,7 +3,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ErrorMessageComponent } from "../error-message/error-message.component";
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-import { User } from '../models/User';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +17,7 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      emailOrUsername: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
