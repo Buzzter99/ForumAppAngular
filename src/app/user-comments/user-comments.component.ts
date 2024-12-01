@@ -4,11 +4,12 @@ import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
 import { Router, RouterModule } from '@angular/router';
 import { UserComment } from '../models/UserComment';
 import { SuccessMessageComponent } from '../success-message/success-message.component';
+import { ErrorMessageComponent } from "../error-message/error-message.component";
 
 @Component({
   selector: 'app-user-comments',
   standalone: true,
-  imports: [FormatDateTimePipe, RouterModule,SuccessMessageComponent],
+  imports: [FormatDateTimePipe, RouterModule, SuccessMessageComponent, ErrorMessageComponent],
   templateUrl: './user-comments.component.html',
   styleUrl: './user-comments.component.css'
 })
@@ -16,6 +17,7 @@ export class UserCommentsComponent implements OnInit {
   public userComments: UserComment[] = []
   public successMessages: string[] = []
   public showMessage: boolean = false
+  public apiErrorMessage: string = ''
   constructor(private userService: UserService, private router: Router) { }
   ngOnInit(): void {
     this.userService.getComments().subscribe(data => {
@@ -36,6 +38,11 @@ export class UserCommentsComponent implements OnInit {
         setTimeout(() => {
           this.showMessage = false;
           this.successMessages = [];
+        }, 3000);
+      } else {
+        this.apiErrorMessage = data.message;
+        setTimeout(() => {
+          this.apiErrorMessage = '';
         }, 3000);
       }
     })

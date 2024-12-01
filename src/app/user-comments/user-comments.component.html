@@ -32,5 +32,8 @@
     @if(this.showMessage){
       <app-success-message [successMessageHeader]="this.successMessages[0]" [successMessageContent]="this.successMessages[1]"></app-success-message>
     }
+    @if(this.apiErrorMessage){
+      <app-error-message [errorMessage]="this.apiErrorMessage"></app-error-message>
+    }
   </div>
   
