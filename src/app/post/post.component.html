@@ -56,7 +56,7 @@
       } } } 
       @if (!this.singlePost.isOwner && this.singlePost.isAuth) 
       {
-      <div class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
+      <div class="bg-gray-900 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
         <h3 class="text-lg font-semibold text-gray-200 mb-4">Add a Comment</h3>
         <form [formGroup]="this.commentForm" (ngSubmit)="addComment()">
           <textarea

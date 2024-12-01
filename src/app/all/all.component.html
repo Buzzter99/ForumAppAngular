@@ -21,14 +21,14 @@
             </div>
           </div>
           <div class="flex justify-between items-center mt-4">
-            <a [routerLink]="['/all', post._id]" class="text-blue-500 hover:underline text-sm font-medium">
+            <a [routerLink]="['/all', post._id]" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400">
               View Details
             </a>
             @if(post.isOwner){
-              <a [routerLink]="['/edit', post._id]" class="text-blue-500 hover:underline text-sm font-medium">
+              <a [routerLink]="['/edit', post._id]" class="bg-gray-700 hover:bg-gray-800 text-gray-100 px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500">
                 Edit
               </a>
-              <a (click)="deletePost(post._id)" class="text-blue-500 hover:underline text-sm font-medium cursor-pointer">
+              <a (click)="deletePost(post._id)" class="bg-red-600 hover:bg-red-700 text-gray-100 px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-400 transform transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer">
                 Delete
               </a>
             }

@@ -8,6 +8,7 @@ import { CreateComponent } from './create/create.component';
 import { AllComponent } from './all/all.component';
 import { PostComponent } from './post/post.component';
 import { EditComponent } from './edit/edit.component';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path: 'all', component:AllComponent},
     { path: 'all/:id', component:PostComponent },
     {path: 'edit/:id', component:EditComponent,canActivate: [authGuard] },
+    {path: 'comments', component:UserCommentsComponent,canActivate: [authGuard] },
     {path: '404', component:NotFoundComponent},
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

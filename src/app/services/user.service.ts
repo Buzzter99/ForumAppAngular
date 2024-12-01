@@ -4,6 +4,8 @@ import { environment } from '../../environments/environment.development';
 import { map, Observable } from 'rxjs';
 import { User } from '../models/User';
 import { ApiResponse } from '../models/ApiResponse';
+import { Comment } from '../models/Comment';
+import { UserComment } from '../models/UserComment';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +29,11 @@ export class UserService {
   }
   register(data : { username: string, email: string, password: string, repeatPassword: string }): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/register`, data);
+  }
+  getComments(): Observable<ApiResponse | UserComment[]> {
+    return this.httpClient.get<ApiResponse | UserComment[]>(`${environment.apiUrl}/user/comments`, { withCredentials: true });
+  }
+  deleteComment(postId: string, commentId: string): Observable<ApiResponse> {
+    return this.httpClient.delete<ApiResponse>(`${environment.apiUrl}/user/comments/${postId}/${commentId}`, { withCredentials: true });
   }
 }
