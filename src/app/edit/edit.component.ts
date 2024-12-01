@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ForumPost } from '../models/ForumPost';
 import { ErrorMessageComponent } from "../error-message/error-message.component";
 
 @Component({

@@ -1,7 +1,7 @@
-<div class="bg-gray-900 text-gray-200 min-h-screen py-4">
+<div class="bg-gray-800 text-gray-200 min-h-screen py-4">
   <div class="max-w-3xl mx-auto space-y-6">
     <div
-      class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
+      class="bg-gray-900 text-gray-200 rounded-lg shadow-md p-6 border border-gray-700">
       <div class="flex justify-between items-center">
         <h3 class="text-2xl font-bold text-blue-400">{{ singlePost.topic }}</h3>
         @if (singlePost.when) {
@@ -34,7 +34,7 @@
       <h3 class="text-lg font-semibold text-gray-200">Comments</h3>
       @for (comment of this.singlePost.comments; track $index) {
       <div
-        class="bg-gray-800 text-gray-200 rounded-lg shadow-md p-4 border border-gray-700"
+        class="bg-gray-900 text-gray-200 rounded-lg shadow-md p-4 border border-gray-700"
       >
         <div class="flex items-center">
           <img
