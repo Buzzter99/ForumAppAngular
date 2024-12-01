@@ -16,12 +16,12 @@ export class NavigationComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit(): void {
-    this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data));
-    interval((5000)).subscribe(() => { this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data)) });
+    this.checkAuthentication();
+    interval((5000)).subscribe(() => { this.checkAuthentication() });
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/home') {
-          this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data));
+          this.checkAuthentication();
         }
       }
     });
@@ -30,8 +30,10 @@ export class NavigationComponent implements OnInit {
     this.router.navigate([endpoint]);
   }
   logout() {
-    this.userService.logout().subscribe();
-    this.isAuthenticated.set(null);
+    this.userService.logout().subscribe(() => this.checkAuthentication());
     this.router.navigate(['home']);
+  }
+  checkAuthentication() {
+    this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data));
   }
 }

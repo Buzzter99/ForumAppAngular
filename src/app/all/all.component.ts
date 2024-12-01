@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { ForumPost } from '../models/ForumPost';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
+import { SuccessMessageComponent } from "../success-message/success-message.component";
 
 @Component({
   selector: 'app-all',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, FormatDateTimePipe, SuccessMessageComponent],
   templateUrl: './all.component.html',
   styleUrl: './all.component.css'
 })
 export class AllComponent implements OnInit {
   public posts: ForumPost[] = [];
+  public successMessages: string[] = [];
+  public showMessage: boolean = false;
 constructor(private postService: PostService) { }
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(data =>{
@@ -25,9 +29,13 @@ constructor(private postService: PostService) { }
     this.postService.deletePost(postId).subscribe(data => {
       if (data.statusCode === 200) {
         this.posts = this.posts.filter(post => post._id !== postId);
-        alert(data.message);
-      } else {
-        alert(data.message);
+        this.showMessage = true;
+        this.successMessages[0] = "Succesful Deletion!";
+        this.successMessages[1] = data.message;
+        setTimeout(() => {
+          this.showMessage = false;
+          this.successMessages = [];
+        }, 3000);
       }
     });
     this.posts = this.posts.filter(post => post._id !== postId);

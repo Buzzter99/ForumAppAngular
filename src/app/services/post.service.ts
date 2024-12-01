@@ -25,4 +25,7 @@ export class PostService {
   deletePost(postId: string): Observable<ApiResponse> {
     return this.httpClient.delete<ApiResponse>(`${environment.apiUrl}/forum/all/${postId}`, { withCredentials: true });
   }
+  editPost(postId: string, data: { topic: string, description: string, additionalInfo: string }): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/forum/edit/${postId}`,data, { withCredentials: true });
+  }
 }

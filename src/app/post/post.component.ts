@@ -4,18 +4,19 @@ import { PostService } from '../services/post.service';
 import { ForumPost } from '../models/ForumPost';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent],
+  imports: [ReactiveFormsModule, ErrorMessageComponent, FormatDateTimePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
 export class PostComponent implements OnInit {
   singlePost: ForumPost = {} as ForumPost;
   commentForm = new FormGroup({
-    msg : new FormControl('', [Validators.required]),
+    msg: new FormControl('', [Validators.required]),
   });
   constructor(private route: ActivatedRoute, private postService: PostService, private router: Router) { }
 
@@ -32,15 +33,15 @@ export class PostComponent implements OnInit {
         this.fetchSinglePost();
       }
     })
-    
+
   }
-fetchSinglePost() {
-  this.postService.getSinglePost(this.route.snapshot.params['id']).subscribe(data => {
-    if ('_id' in data) {
-      this.singlePost = data as ForumPost;
-    } else {
-      this.router.navigate(['404']);
-    }
-  });
-}
+  fetchSinglePost() {
+    this.postService.getSinglePost(this.route.snapshot.params['id']).subscribe(data => {
+      if ('_id' in data) {
+        this.singlePost = data as ForumPost;
+      } else {
+        this.router.navigate(['404']);
+      }
+    });
+  }
 }
