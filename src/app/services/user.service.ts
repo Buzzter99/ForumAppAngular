@@ -4,7 +4,6 @@ import { environment } from '../../environments/environment.development';
 import { map, Observable } from 'rxjs';
 import { User } from '../models/User';
 import { ApiResponse } from '../models/ApiResponse';
-import { Comment } from '../models/Comment';
 import { UserComment } from '../models/UserComment';
 
 @Injectable({
@@ -35,5 +34,12 @@ export class UserService {
   }
   deleteComment(postId: string, commentId: string): Observable<ApiResponse> {
     return this.httpClient.delete<ApiResponse>(`${environment.apiUrl}/user/comments/${postId}/${commentId}`, { withCredentials: true });
+  }
+  getCommentById(commentId: string): Observable<ApiResponse | Comment> {
+    return this.httpClient.get<ApiResponse | Comment>(`${environment.apiUrl}/user/edit/comment/${commentId}`, { withCredentials: true });
+  }
+
+  editComment(commentId: string, msg: string): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/edit/comment/${commentId}`, msg, { withCredentials: true });
   }
 }

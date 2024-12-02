@@ -1,0 +1,33 @@
+<div class="min-h-screen bg-gray-800 text-gray-200 pt-10 pb-2">
+    <div class="max-w-xl mx-auto bg-gray-900 text-gray-200 shadow-lg rounded-lg p-8 border border-gray-700">
+      <h2 class="text-3xl font-bold mb-6 text-gray-100 text-center">
+        Edit Your Comment
+      </h2>
+      <form [formGroup]="this.editCommentForm" (ngSubmit)="editComment()">
+        <div class="mb-5">
+          <label for="msg" class="block text-sm font-medium text-gray-400 mb-2">
+            Comment Message
+          </label>
+          <textarea
+            id="msg"
+            formControlName="msg"
+            class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
+            rows="3"
+            value="{{ this.editCommentForm.get('msg') }}"
+            placeholder="Edit your comment"
+          >{{ this.editCommentForm.get('msg') }}</textarea>
+        </div>
+        @if(this.editCommentForm.get('msg')?.hasError('required') && this.editCommentForm.get('msg')?.touched) {
+            <app-error-message [errorMessage]="'Comment is required'"></app-error-message>
+          }
+        @if(this.apiErrorMessage) {
+          <app-error-message [errorMessage]="this.apiErrorMessage"></app-error-message>
+        }
+        <button
+          [disabled]="!this.editCommentForm.valid"
+          class="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-gray-100 font-semibold text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition disabled:opacity-50 disabled:cursor-not-allowed">Edit Comment
+        </button>
+      </form>
+    </div>
+  </div>
+  
