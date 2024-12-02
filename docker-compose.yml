@@ -14,14 +14,14 @@ services:
     environment:
       - JWT_SECRET=JWT_SECRET
       - MONGODB_CONNECTIONSTRING=mongodb://mongodb:27017/BusarovForumDb
-    image: buzzter100/busarov-be
+    image: buzzter100/busarov-be:latest
     depends_on:
       - mongo
   busarov-fe:
     ports:
       - 80:80
     container_name: busarovapp-fe
-    image: buzzter100/busarov-fe
+    image: buzzter100/busarov-fe:latest
     depends_on:
       - busarov-be
       - mongo
