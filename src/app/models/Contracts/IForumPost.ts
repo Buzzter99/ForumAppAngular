@@ -1,6 +1,5 @@
 import { Comment } from "../Comment";
 import { User } from "../User";
-import { IComment } from "./IComment";
 export interface IForumPost {
     _id: string;
     topic: string;
@@ -10,4 +9,5 @@ export interface IForumPost {
     who: User;
     comments: Comment[]
     isOwner: boolean
+    isLiked: boolean
 }

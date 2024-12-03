@@ -17,4 +17,5 @@ export class ForumPost implements IForumPost {
     comments: Comment[] = [];
     isOwner: boolean = false;
     isAuth: boolean = false;
+    isLiked: boolean = false;
 }

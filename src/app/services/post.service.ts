@@ -28,4 +28,7 @@ export class PostService {
   editPost(postId: string, data: { topic: string, description: string, additionalInfo: string }): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/forum/edit/${postId}`,data, { withCredentials: true });
   }
+  likePost(postId: string): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/forum/like/${postId}`, {}, { withCredentials: true });
+  }
 }

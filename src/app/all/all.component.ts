@@ -18,15 +18,14 @@ export class AllComponent implements OnInit {
   public successMessages: string[] = [];
   public showMessage: boolean = false;
   public apiErrorMessage: string = '';
-constructor(private postService: PostService) { }
+  constructor(private postService: PostService) { }
   ngOnInit(): void {
-    this.postService.getAllPosts().subscribe(data =>{
+    this.postService.getAllPosts().subscribe(data => {
       if (Array.isArray(data)) {
         this.posts = data as ForumPost[];
       }
     });
   }
-
   deletePost(postId: string) {
     this.postService.deletePost(postId).subscribe(data => {
       if (data.statusCode === 200) {

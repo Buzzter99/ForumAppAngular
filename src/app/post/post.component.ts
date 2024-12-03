@@ -5,11 +5,12 @@ import { ForumPost } from '../models/ForumPost';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorMessageComponent } from "../error-message/error-message.component";
 import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent, FormatDateTimePipe],
+  imports: [ReactiveFormsModule, ErrorMessageComponent, FormatDateTimePipe,NgClass],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
@@ -43,5 +44,12 @@ export class PostComponent implements OnInit {
         this.router.navigate(['404']);
       }
     });
+  }
+  toggleLike() {
+    this.postService.likePost(this.route.snapshot.params['id']).subscribe(response => {
+      if (response.statusCode === 200) {
+        this.singlePost.isLiked = !this.singlePost.isLiked;
+      }
+    })
   }
 }
