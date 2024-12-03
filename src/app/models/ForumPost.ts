@@ -18,4 +18,5 @@ export class ForumPost implements IForumPost {
     isOwner: boolean = false;
     isAuth: boolean = false;
     isLiked: boolean = false;
+    likes: string[] = [];
 }

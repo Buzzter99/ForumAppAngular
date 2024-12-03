@@ -10,4 +10,5 @@ export interface IForumPost {
     comments: Comment[]
     isOwner: boolean
     isLiked: boolean
+    likes: string[]
 }
