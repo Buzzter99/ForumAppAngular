@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 body {
-    margin-top: 65px; /* Or the height of your navigation bar */
+    margin-top: 60px;
   }
