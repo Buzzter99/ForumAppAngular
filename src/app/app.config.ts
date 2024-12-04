@@ -3,7 +3,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { FormatDateTimePipe } from './pipes/format-date-time.pipe';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideHttpClient(),provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)],

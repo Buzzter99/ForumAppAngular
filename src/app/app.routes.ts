@@ -11,6 +11,7 @@ import { EditComponent } from './edit/edit.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 import { AboutComponent } from './about/about.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     {path: 'comments', component:UserCommentsComponent,canActivate: [authGuard] },
     {path: 'comments/edit/:id', component:EditCommentComponent,canActivate: [authGuard] },
     {path: 'about', component:AboutComponent},
+    {path: 'updateAccount', component:UpdateProfileComponent,canActivate: [authGuard] },
     {path: '404', component:NotFoundComponent},
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

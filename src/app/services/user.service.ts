@@ -42,4 +42,10 @@ export class UserService {
   editComment(commentId: string, msg: string): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/edit/comment/${commentId}`, msg, { withCredentials: true });
   }
+  getLoggedUser(): Observable<ApiResponse | User> {
+    return this.httpClient.get<ApiResponse | User>(`${environment.apiUrl}/user/info`, { withCredentials: true });
+  }
+  updateAccount(data: { username : string,email : string, oldPassword : string,newPassword : string,confirmNewPassword : string }): Observable<ApiResponse> {
+    return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/update`, data, { withCredentials: true });
+  }
 }

@@ -89,7 +89,7 @@
             formControlName="msg"
             class="w-full rounded-lg bg-gray-700 border border-gray-600 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
             rows="3"
-            placeholder="Write your comment here..."
+            placeholder="Write your comment here...*"
           ></textarea>
           @if (this.commentForm.get('msg')?.hasError('required') &&
           this.commentForm.get('msg')?.touched) {

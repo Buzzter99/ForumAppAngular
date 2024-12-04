@@ -13,9 +13,8 @@
             formControlName="msg"
             class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
             rows="3"
-            value="{{ this.editCommentForm.get('msg') }}"
-            placeholder="Edit your comment"
-          >{{ this.editCommentForm.get('msg') }}</textarea>
+            placeholder="Edit your comment*"
+          ></textarea>
         </div>
         @if(this.editCommentForm.get('msg')?.hasError('required') && this.editCommentForm.get('msg')?.touched) {
             <app-error-message [errorMessage]="'Comment is required'"></app-error-message>

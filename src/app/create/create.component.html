@@ -13,7 +13,7 @@
           type="text"
           formControlName="topic"
           class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
-          placeholder="Enter the topic"
+          placeholder="Enter the topic*"
         />
       </div>
       @if (this.forumPostForm.get('topic')?.hasError('required') && this.forumPostForm.get('topic')?.touched) {
@@ -28,7 +28,7 @@
           formControlName="description"
           class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
           rows="4"
-          placeholder="Describe the problem"
+          placeholder="Describe the problem*"
         ></textarea>
       </div>
       @if (this.forumPostForm.get('description')?.hasError('required') && this.forumPostForm.get('description')?.touched) {

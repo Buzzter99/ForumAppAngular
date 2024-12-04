@@ -1,0 +1,49 @@
+<form [formGroup]="this.updateProfileForm" (ngSubmit)="updateProfile()">
+    <section class="flex justify-center items-center h-screen bg-gray-800"> 
+      <div class="max-w-md w-full bg-gray-900 rounded p-6 space-y-4">
+        <div class="mb-4">
+          <p class="text-gray-400">Update Profile</p>
+          <h2 class="text-xl font-bold text-white">Update your account information</h2>
+        </div>
+        <div>
+          <input formControlName="username" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Username">
+        </div>
+        @if(this.updateProfileForm.get('username')?.hasError('required') && this.updateProfileForm.get('username')?.touched){
+          <app-error-message [errorMessage]="'Username is required'"></app-error-message>
+        }
+        <div>
+          <input formControlName="email" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Email">
+        </div>
+        @if(this.updateProfileForm.get('email')?.hasError('email') && this.updateProfileForm.get('email')?.touched){
+          <app-error-message [errorMessage]="'Please enter a valid email'"></app-error-message>
+        }
+        <div>
+          <input formControlName="oldPassword" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="Old Password">
+        </div>
+        <div>
+          <input formControlName="newPassword" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="New Password">
+        </div>
+        <div>
+            <input formControlName="confirmNewPassword" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="New Password Confirmation">
+          </div>
+        @if(this.updateProfileForm.hasError('fieldsNotComplete')){
+          <app-error-message [errorMessage]="'All password fields are required in order to change password'"></app-error-message>
+        }
+        @if(this.updateProfileForm.hasError('passwordMismatch') && this.updateProfileForm.get('newPassword')?.touched && this.updateProfileForm.get('confirmNewPassword')?.touched){
+            <app-error-message [errorMessage]="'New Password must match'"></app-error-message>
+        }
+        @if(this.apiErrorMessage){
+          <app-error-message [errorMessage]="this.apiErrorMessage"></app-error-message>
+        }
+        @if(this.showMessage){
+          <app-success-message [successMessageHeader]="this.successMessage[0]" [successMessageContent]="this.successMessage[1]"></app-success-message>
+        }
+        <div>
+          <button  [disabled]="this.updateProfileForm.invalid" class="w-full py-4 rounded text-sm font-bold transition duration-200 text-gray-50 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-400">
+            Update Profile
+          </button>
+        </div>
+      </div>
+    </section>
+  </form>
+  

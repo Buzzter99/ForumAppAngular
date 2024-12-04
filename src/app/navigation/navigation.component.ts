@@ -3,11 +3,12 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { interval } from 'rxjs';
 import { ApiResponse } from '../models/ApiResponse';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,NgClass],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })

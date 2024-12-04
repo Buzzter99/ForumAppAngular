@@ -13,8 +13,8 @@
             type="text"
             formControlName="topic"
             class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
-            placeholder="Enter the topic"
-            value="{{ this.forumPostForm.get('topic') }}"
+            placeholder="Enter the topic*"
+           
           />
         </div>
         @if (this.forumPostForm.get('topic')?.hasError('required') && this.forumPostForm.get('topic')?.touched) {
@@ -29,8 +29,7 @@
             formControlName="description"
             class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
             rows="4"
-            placeholder="Describe the problem"
-            value="{{ this.forumPostForm.get('description') }}"
+            placeholder="Describe the problem*"
           ></textarea>
         </div>
         @if (this.forumPostForm.get('description')?.hasError('required') && this.forumPostForm.get('description')?.touched) {
@@ -46,7 +45,7 @@
             class="block w-full rounded-lg bg-gray-800 border border-gray-700 text-gray-200 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
             rows="3"
             placeholder="Provide additional details (optional)"
-            value="{{ this.forumPostForm.get('additionalInfo') }}"
+           
           ></textarea>
         </div>
         @if(this.apiErrorMessage) {

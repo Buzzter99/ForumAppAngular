@@ -10,7 +10,7 @@
           formControlName="emailOrUsername"
           class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
           type="text"
-          placeholder="Email/Username"
+          placeholder="Email/Username*"
         />
       </div>
       @if(this.loginForm.get('emailOrUsername')?.hasError('required') && this.loginForm.get('email')?.touched){
@@ -21,7 +21,7 @@
           formControlName="password"
           class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
           type="password"
-          placeholder="Password"
+          placeholder="Password*"
         />
       </div>
       @if(this.loginForm.get('password')?.hasError('required') && this.loginForm.get('password')?.touched){
