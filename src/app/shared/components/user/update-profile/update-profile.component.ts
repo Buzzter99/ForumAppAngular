@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ValidatorService } from '../services/validator.service';
-import { UserService } from '../services/user.service';
+import { ValidatorService } from '../../../../core/services/validator.service';
+import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
-import { SuccessMessageComponent } from "../success-message/success-message.component";
+import { SuccessMessageComponent } from "../../success-message/success-message.component";
 
 @Component({
   selector: 'app-update-profile',

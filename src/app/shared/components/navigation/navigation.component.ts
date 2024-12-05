@@ -1,8 +1,8 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../../core/services/user.service';
 import { interval } from 'rxjs';
-import { ApiResponse } from '../models/ApiResponse';
+import { ApiResponse } from '../../models/ApiResponse';
 import { NgClass } from '@angular/common';
 
 @Component({

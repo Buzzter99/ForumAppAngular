@@ -14,14 +14,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Project uses angular as a frontend framework and tailwindcss as a styling library.Project can be run after cloning. In order to achieve full functionality of the application a working backend must be working which documentation can be found on https://github.com/Buzzter99/ForumAppREST.Project uses ci/cd and deploys every time there is some change in the main branch that pushes changes of image to dockerhub. Application is deployed in OCI(Oracle Cloud) on http://158.180.62.108. Server runs crontab once a day in 12:00 and pulls latest changes in the docker repository. Full project can be run with docker-compose file found in the current repository of the project. If file environment.prod.ts does not exist dockerfile build will fail.See workflow file for more clarity about pushing image to production env.

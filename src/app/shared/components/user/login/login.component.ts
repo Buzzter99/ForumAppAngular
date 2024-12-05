@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
-import { UserService } from '../services/user.service';
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
+import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({

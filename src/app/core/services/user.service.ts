@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../../environments/environment.development';
 import { map, Observable } from 'rxjs';
-import { User } from '../models/User';
-import { ApiResponse } from '../models/ApiResponse';
-import { UserComment } from '../models/UserComment';
+import { User } from '../../shared/models/User';
+import { ApiResponse } from '../../shared/models/ApiResponse';
+import { UserComment } from '../../shared/models/UserComment';
 
 @Injectable({
   providedIn: 'root'

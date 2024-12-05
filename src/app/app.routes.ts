@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { authGuard, redirectIfAuthenticatedGuard } from './guards/auth.guard';
-import { CreateComponent } from './create/create.component';
-import { AllComponent } from './all/all.component';
-import { PostComponent } from './post/post.component';
-import { EditComponent } from './edit/edit.component';
-import { UserCommentsComponent } from './user-comments/user-comments.component';
-import { EditCommentComponent } from './edit-comment/edit-comment.component';
-import { AboutComponent } from './about/about.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { LoginComponent } from './shared/components/user/login/login.component';
+import { RegisterComponent } from './shared/components/user/register/register.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { authGuard, redirectIfAuthenticatedGuard } from './core/guards/auth.guard';
+import { CreateComponent } from './shared/components/post/create/create.component';
+import { AllComponent } from './shared/components/post/all/all.component';
+import { PostComponent } from './shared/components/post/post/post.component';
+import { EditComponent } from './shared/components/post/edit/edit.component';
+import { UserCommentsComponent } from './shared/components/user/user-comments/user-comments.component';
+import { EditCommentComponent } from './shared/components/user/edit-comment/edit-comment.component';
+import { AboutComponent } from './shared/components/about/about.component';
+import { UpdateProfileComponent } from './shared/components/user/update-profile/update-profile.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },

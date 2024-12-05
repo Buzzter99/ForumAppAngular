@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PostService } from '../services/post.service';
+import { PostService } from '../../../../core/services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
 
 @Component({
   selector: 'app-edit',

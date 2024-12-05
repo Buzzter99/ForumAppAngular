@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../services/post.service';
-import { ForumPost } from '../models/ForumPost';
+import { PostService } from '../../../../core/services/post.service';
+import { ForumPost } from '../../../models/ForumPost';
 import { RouterModule } from '@angular/router';
-import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
-import { SuccessMessageComponent } from "../success-message/success-message.component";
-import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { FormatDateTimePipe } from "../../../pipes/format-date-time.pipe";
+import { SuccessMessageComponent } from "../../success-message/success-message.component";
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
 
 @Component({
   selector: 'app-all',

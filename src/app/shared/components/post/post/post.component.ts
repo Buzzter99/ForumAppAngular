@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from '../services/post.service';
-import { ForumPost } from '../models/ForumPost';
+import { PostService } from '../../../../core/services/post.service';
+import { ForumPost } from '../../../models/ForumPost';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
-import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
+import { FormatDateTimePipe } from "../../../pipes/format-date-time.pipe";
 import { NgClass } from '@angular/common';
 
 @Component({

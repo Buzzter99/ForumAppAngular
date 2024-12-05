@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PostService } from '../services/post.service';
+import { PostService } from '../../../../core/services/post.service';
 import { Router } from '@angular/router';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
 
 @Component({
   selector: 'app-create',

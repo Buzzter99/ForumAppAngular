@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { FormatDateTimePipe } from "../pipes/format-date-time.pipe";
+import { UserService } from '../../../../core/services/user.service';
+import { FormatDateTimePipe } from "../../../pipes/format-date-time.pipe";
 import { Router, RouterModule } from '@angular/router';
-import { UserComment } from '../models/UserComment';
-import { SuccessMessageComponent } from '../success-message/success-message.component';
-import { ErrorMessageComponent } from "../error-message/error-message.component";
+import { UserComment } from '../../../models/UserComment';
+import { SuccessMessageComponent } from '../../success-message/success-message.component';
+import { ErrorMessageComponent } from "../../error-message/error-message.component";
 
 @Component({
   selector: 'app-user-comments',

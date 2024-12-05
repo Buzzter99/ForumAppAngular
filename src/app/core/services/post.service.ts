@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { ApiResponse } from '../models/ApiResponse';
-import { ForumPost } from '../models/ForumPost';
+import { ApiResponse } from '../../shared/models/ApiResponse';
+import { ForumPost } from '../../shared/models/ForumPost';
 
 @Injectable({
   providedIn: 'root'
