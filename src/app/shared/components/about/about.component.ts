@@ -11,7 +11,7 @@ import { ApiResponse } from '../../models/ApiResponse';
   styleUrl: './about.component.css'
 })
 export class AboutComponent implements OnInit {
-  isAuthenticated = signal(null as ApiResponse | null);
+  isAuthenticated = signal<ApiResponse | null>(null);
   constructor(private router: Router,private userService: UserService) { }
   ngOnInit(): void {
     this.checkAuthentication();

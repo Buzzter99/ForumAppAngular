@@ -13,7 +13,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent implements OnInit {
-  isAuthenticated = signal(null as ApiResponse | null);
+  isAuthenticated = signal<ApiResponse | null>(null);
   constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit(): void {
