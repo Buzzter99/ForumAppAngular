@@ -47,13 +47,12 @@ export class UpdateProfileComponent implements OnInit {
       if (response.statusCode === 200) {
         this.apiErrorMessage = '';
         this.showMessage = true;
-        this.successMessage[0] = "Succesful Update of Account. You will be logged out.";
+        this.successMessage[0] = "Succesful Update of Account.";
         this.successMessage[1] = response.message;
         setTimeout(() => {
           this.showMessage = false;
           this.successMessage = [];
-          this.userService.logout().subscribe(() => this.router.navigate(['home']))
-        }, 4000);
+        }, 3000);
       } else {
         this.apiErrorMessage = response.message;
         setTimeout(() => {
