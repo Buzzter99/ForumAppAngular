@@ -2,7 +2,6 @@ import { Component, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../core/services/user.service';
 import { interval } from 'rxjs';
-import { ApiResponse } from '../../models/ApiResponse';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -13,7 +12,8 @@ import { NgClass } from '@angular/common';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent implements OnInit {
-  isAuthenticated = signal<ApiResponse | null>(null);
+  isAuthenticated = signal<boolean>(false);
+  authenticatedUserMessage = signal<string>('');
   constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit(): void {
@@ -35,6 +35,14 @@ export class NavigationComponent implements OnInit {
     this.router.navigate(['home']);
   }
   checkAuthentication() {
-    this.userService.isAuthenticated().subscribe(data => this.isAuthenticated.set(data));
+    this.userService.isAuthenticated().subscribe(data => {
+      if (data.statusCode === 200) {
+        this.isAuthenticated.set(true);
+        this.authenticatedUserMessage.set(data.message);
+      } else {
+        this.isAuthenticated.set(false);
+        this.authenticatedUserMessage.set('');
+      }
+    });
   }
 }

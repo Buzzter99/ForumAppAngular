@@ -14,11 +14,9 @@ export class UserService {
   getAllUsers(): Observable<User[] | ApiResponse> {
     return this.httpClient.get<User[] | ApiResponse>(environment.apiUrl + '/user/all');
   }
-  isAuthenticated(): Observable<ApiResponse | null> {
+  isAuthenticated(): Observable<ApiResponse> {
     return this.httpClient.get<ApiResponse>(`${environment.apiUrl}/user/isAuthenticated`, { withCredentials: true })
-      .pipe(map(response => {
-        return response.statusCode === 200 ? response : null;
-      }));
+      .pipe(map(response => { return response; }));
   }
   login(credentials: { email: string, password: string }): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/login`, credentials, { withCredentials: true });
@@ -26,7 +24,7 @@ export class UserService {
   logout(): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/logout`, {}, { withCredentials: true });
   }
-  register(data : { username: string, email: string, password: string, repeatPassword: string }): Observable<ApiResponse> {
+  register(data: { username: string, email: string, password: string, repeatPassword: string }): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/register`, data);
   }
   getComments(): Observable<ApiResponse | UserComment[]> {
@@ -45,7 +43,7 @@ export class UserService {
   getLoggedUser(): Observable<ApiResponse | User> {
     return this.httpClient.get<ApiResponse | User>(`${environment.apiUrl}/user/info`, { withCredentials: true });
   }
-  updateAccount(data: { username : string,email : string, oldPassword : string,newPassword : string,confirmNewPassword : string }): Observable<ApiResponse> {
+  updateAccount(data: { username: string, email: string, oldPassword: string, newPassword: string, confirmNewPassword: string }): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>(`${environment.apiUrl}/user/update`, data, { withCredentials: true });
   }
 }
