@@ -6,11 +6,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ErrorMessageComponent } from "../../error-message/error-message.component";
 import { FormatDateTimePipe } from "../../../pipes/format-date-time.pipe";
 import { NgClass } from '@angular/common';
+import { FormFocusNextDirective } from '../../../directives/form-focus-next.directive';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent, FormatDateTimePipe,NgClass],
+  imports: [ReactiveFormsModule, ErrorMessageComponent, FormatDateTimePipe,NgClass,FormFocusNextDirective],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
