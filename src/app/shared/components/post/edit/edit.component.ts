@@ -3,11 +3,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PostService } from '../../../../core/services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorMessageComponent } from "../../error-message/error-message.component";
+import { FormFocusNextDirective } from '../../../directives/form-focus-next.directive';
 
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent],
+  imports: [ReactiveFormsModule, ErrorMessageComponent,FormFocusNextDirective],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })

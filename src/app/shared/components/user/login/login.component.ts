@@ -3,11 +3,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ErrorMessageComponent } from "../../error-message/error-message.component";
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
+import { FormFocusNextDirective } from '../../../directives/form-focus-next.directive';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent],
+  imports: [ReactiveFormsModule, ErrorMessageComponent,FormFocusNextDirective],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

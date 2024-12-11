@@ -5,11 +5,12 @@ import { ValidatorService } from '../../../../core/services/validator.service';
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
 import { SuccessMessageComponent } from "../../success-message/success-message.component";
+import { FormFocusNextDirective } from '../../../directives/form-focus-next.directive';
 
 @Component({
   selector: 'app-update-profile',
   standalone: true,
-  imports: [ErrorMessageComponent, ReactiveFormsModule, SuccessMessageComponent],
+  imports: [ErrorMessageComponent, ReactiveFormsModule, SuccessMessageComponent,FormFocusNextDirective],
   templateUrl: './update-profile.component.html',
   styleUrl: './update-profile.component.css'
 })

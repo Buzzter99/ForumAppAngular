@@ -6,7 +6,7 @@
             <h2 class="text-xl font-bold text-white">Join our community</h2>
         </div>
         <div>
-            <input formControlName="email" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Email*">
+            <input appFormFocusNext formControlName="email" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Email*">
         </div>
         @if(this.registerForm.get('email')?.hasError('required') && this.registerForm.get('email')?.touched){
             <app-error-message [errorMessage]="'Email is required'"></app-error-message>
@@ -15,19 +15,19 @@
             <app-error-message [errorMessage]="'Please enter a valid email'"></app-error-message>
         }
         <div>
-            <input formControlName="username" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Username*">
+            <input appFormFocusNext formControlName="username" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Username*">
         </div>
         @if(this.registerForm.get('username')?.hasError('required') && this.registerForm.get('username')?.touched){
             <app-error-message [errorMessage]="'Username is required'"></app-error-message>
         }
         <div>
-            <input formControlName="password" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="Password*">
+            <input appFormFocusNext formControlName="password" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="Password*">
         </div>
         @if(this.registerForm.get('password')?.hasError('required') && this.registerForm.get('password')?.touched){
             <app-error-message [errorMessage]="'Password is required'"></app-error-message>
         }
         <div>
-            <input formControlName="repeatPassword" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="Repeat Password*">
+            <input appFormFocusNext formControlName="repeatPassword" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="password" placeholder="Repeat Password*">
         </div>
         @if(this.registerForm.get('repeatPassword')?.hasError('required') && this.registerForm.get('repeatPassword')?.touched){
             <app-error-message [errorMessage]="'Repeat Password is required'"></app-error-message>

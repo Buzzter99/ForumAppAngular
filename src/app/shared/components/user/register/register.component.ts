@@ -4,11 +4,12 @@ import { ErrorMessageComponent } from "../../error-message/error-message.compone
 import { ValidatorService } from '../../../../core/services/validator.service';
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
+import { FormFocusNextDirective } from '../../../directives/form-focus-next.directive';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, ErrorMessageComponent],
+  imports: [ReactiveFormsModule, ErrorMessageComponent,FormFocusNextDirective],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
