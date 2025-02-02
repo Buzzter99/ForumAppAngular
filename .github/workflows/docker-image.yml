@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "export const environment = {" > src/environments/environment.prod.ts
           echo "  apiUrl: '${{ secrets.API_URL }}'," >> src/environments/environment.prod.ts
-          echo "  production: true" >> src/environments/environment.prod.ts
+          echo "  production: true, apiKey: '${{ secrets.API_KEY }}'" >> src/environments/environment.prod.ts
           echo "};" >> src/environments/environment.prod.ts
       - name: Build Docker image
         run: |
